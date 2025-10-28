@@ -1,0 +1,21 @@
+<div class="form-container">
+	<form class="calculator-form" [formGroup]="calculateForm">
+		<label for="num1">1st number</label>
+		<input type="text" formControlName="textField1" placeholder="Enter first number">
+		<label for="num2">2st number</label>
+		<input type="text" formControlName="textField2" placeholder="Enter second number">
+		
+		<div class="button-group">
+			<button class="save-btn" (click)="onAdd()">
+				<i class="fa-solid fa-add"> Add </i>
+			</button>
+			<button class="save-btn" (click)="onSubtract()">
+				<i class="fa-solid fa-minus"> Subtract </i>
+			</button>
+		</div>
+
+		<div class="result-text">
+			<p>Result: {{ result }}</p>
+		</div>
+	</form>
+</div>
