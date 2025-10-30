@@ -22,7 +22,7 @@ export class StudentApiService {
   public baseUrl: string = environment.apiUrl + '/students';
   private http = inject(HttpClient);
   private token =
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJlbWFpbEBlbWFpbC5jb20iLCJuYW1lIjoidGVzdHVzZXIiLCJpYXQiOjE3NjE4MzkyNTEsImV4cCI6MTc2MTg0Mjg1MX0.Mns7ru6acCx8MRrsKPaImHDf1P1gBn-cJn2F1nHlUiM';
+    '';
 
   // private headers = new HttpHeaders({
   //   Authorization: `Bearer ${this.token}`,
