@@ -1,0 +1,42 @@
+<!-- <h2 mat-dialog-title>Add To-Do List</h2>
+
+<mat-dialog-content>
+  <form class="todo-form" [formGroup]="todoForm">
+    <mat-form-field appearance="outline">
+      <mat-label>Title</mat-label>
+      <input matInput formControlName="title" type="text" placeholder="Enter title">
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-button (click)="onDialogCancel()">Cancel</button>
+  <button mat-button (click)="onDialogAdd()" cdkFocusInitial>Add</button>
+</mat-dialog-actions> -->
+
+<h2 mat-dialog-title>Add To-Do List</h2>
+
+<mat-dialog-content>
+  <form class="todo-form" [formGroup]="todoForm">
+    <mat-form-field appearance="outline" class="full-width-field"> 
+      <mat-label>Title</mat-label>
+      <input matInput formControlName="title" type="text" placeholder="Enter title">
+      
+      <!-- <mat-error *ngIf="todoForm.get('title')?.invalid && todoForm.get('title')?.touched">
+        Title is required.
+      </mat-error> -->
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-button (click)="onDialogCancel()">Cancel</button>
+  <button 
+    mat-raised-button 
+    color="primary" 
+    (click)="onDialogAdd()" 
+    [disabled]="todoForm.invalid" 
+    cdkFocusInitial>
+    Add
+  </button>
+</mat-dialog-actions>

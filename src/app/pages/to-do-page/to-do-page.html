@@ -1,0 +1,32 @@
+<div class="todo-body">
+	<div class="todo-container">
+		<div class="header-container">
+			<mat-label class="header-text">Todo list</mat-label>
+			<button mat-button (click)="onAdd()">Add New</button>
+		</div>
+
+		<div class="list-container">
+			<!-- <mat-list #todos (selectionChange)="onSelected()"> -->
+			<mat-list >
+				@for (todo of todoList; track $index;) {
+				<!-- <mat-list-item 
+					checkboxPosition="before" 
+					[value]="todo" 
+					[selected]="todo.selected"
+				> -->
+				<mat-list-item>
+				<div class="todo-item">
+					<button mat-button class="delete" (click)="onSelected(todo.id)">
+						<mat-icon color="primary">{{ todo.selected ? 'check_box' : 'check_box_outline_blank'}}</mat-icon>
+					</button>
+					<span class="todo-name">{{ todo.title }}</span>
+					<button mat-button class="delete" (click)="onDelete($index)">
+						<mat-icon>delete_forever</mat-icon>
+					</button>
+				</div>
+				</mat-list-item>
+				}
+			</mat-list>
+		</div>
+	</div>
+</div>
