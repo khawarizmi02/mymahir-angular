@@ -1,6 +1,7 @@
 <div class="main">
 	<div class="button-container">
 		<button mat-raised-button color="primary" routerLink="/student/add">Add Student</button>
+		<button mat-raised-button color="primary" (click)="onLogout()">Logout</button>
 	</div>
 
 	<table mat-table [dataSource]="dataSources" class="mat-elevation-z8 border-solid margin-bot">

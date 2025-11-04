@@ -3,10 +3,11 @@ import { MaterialModule } from '../../shared/material.module';
 import { Student } from '../../interfaces/student.data';
 import { StudentApiService } from '../../services/student-api.service';
 import { MatTableDataSource } from '@angular/material/table';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
 import { DeleteConfirmationDialogComponent } from '../../components/delete-confirmation-dialog.component';
+import { AuthApiService } from '../../services/auth-api.service';
 
 @Component({
   selector: 'app-student-page',
@@ -27,7 +28,11 @@ export class StudentPage implements OnInit {
     this._snackBar.open(message, action);
   }
 
-  constructor(private studentApiService: StudentApiService) {}
+  constructor(
+    private studentApiService: StudentApiService,
+    private authApiService: AuthApiService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.fetchStudents();
@@ -81,5 +86,10 @@ export class StudentPage implements OnInit {
         });
       }
     });
+  }
+
+  onLogout(): void {
+    this.authApiService.logout();
+    this.router.navigateByUrl('/login');
   }
 }

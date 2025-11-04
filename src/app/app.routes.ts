@@ -6,6 +6,8 @@ import { ToDoPage } from './pages/to-do-page/to-do-page';
 import { StudentPage } from './pages/student-page/student-page';
 import { DetailPage } from './pages/student-page/detail-page/detail-page';
 import { AddPage } from './pages/student-page/add-page/add-page';
+import { LoginPage } from './pages/login-page/login-page';
+import { authGuard } from './guards/auth-guard';
 
 export const routes: Routes = [
   {
@@ -31,9 +33,14 @@ export const routes: Routes = [
   {
     path: 'student/add',
     component: AddPage,
+    canActivate: [authGuard],
   },
   {
     path: 'student/:id',
     component: DetailPage,
+  },
+  {
+    path: 'login',
+    component: LoginPage,
   },
 ];

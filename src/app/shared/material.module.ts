@@ -12,6 +12,8 @@ import { MatListModule } from '@angular/material/list';
 import { App } from '../app';
 import { MatTableModule } from '@angular/material/table';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatInputModule } from '@angular/material/input';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   exports: [
@@ -27,6 +29,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatListModule,
     MatTableModule,
     MatSnackBarModule,
+    MatInputModule,
+    FormsModule,
   ],
 })
 export class MaterialModule {}

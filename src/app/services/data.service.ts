@@ -25,4 +25,8 @@ export class DataService {
   clearStorage(): void {
     return localStorage.clear();
   }
+
+  deleteStorage(key: string) {
+    return localStorage.removeItem(key);
+  }
 }

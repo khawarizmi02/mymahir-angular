@@ -1,6 +1,12 @@
 import { Component, inject } from '@angular/core';
 import { MaterialModule } from '../../../shared/material.module';
-import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { StudentApiService } from '../../../services/student-api.service';
 import { Router, RouterLink } from '@angular/router';
 import { MatInputModule } from '@angular/material/input';
@@ -26,10 +32,10 @@ export class AddPage {
     private router: Router
   ) {
     this.studentForm = this.formBuilder.group({
-      name: [''],
-      email: [''],
-      phone: [''],
-      student_no: [''],
+      name: ['', [Validators.required, Validators.maxLength(50)]],
+      email: ['', [Validators.required, Validators.pattern(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)]],
+      phone: ['', [Validators.required, Validators.pattern(/^\d+$/)]],
+      student_no: ['', [Validators.required]],
     });
   }
 
